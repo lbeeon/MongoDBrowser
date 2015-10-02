@@ -1,0 +1,94 @@
+{
+  "_args": [
+    [
+      "mongo-express",
+      "/Users/rovshengurdov/Documents/Projects/mean/DB"
+    ]
+  ],
+  "_from": "mongo-express@*",
+  "_id": "mongo-express@0.23.2",
+  "_inCache": true,
+  "_location": "/mongo-express",
+  "_nodeVersion": "4.1.1",
+  "_npmUser": {
+    "email": "wulf@wulf.co.nz",
+    "name": "wulfsolter"
+  },
+  "_npmVersion": "3.3.4",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "mongo-express",
+    "raw": "mongo-express",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/mongo-express/-/mongo-express-0.23.2.tgz",
+  "_shasum": "3f026d9156464540c1cf823214b73d3adb3a7198",
+  "_shrinkwrap": null,
+  "_spec": "mongo-express",
+  "_where": "/Users/rovshengurdov/Documents/Projects/mean/DB",
+  "author": {
+    "name": "https://github.com/andzdroid"
+  },
+  "bugs": {
+    "url": "https://github.com/andzdroid/mongo-express/issues"
+  },
+  "dependencies": {
+    "async": "1.4.2",
+    "basic-auth-connect": "1.0.0",
+    "body-parser": "1.14.0",
+    "consolidate": "0.12.1",
+    "cookie-parser": "1.4.0",
+    "errorhandler": "1.4.2",
+    "express": "4.13.3",
+    "express-session": "1.11.3",
+    "method-override": "2.3.5",
+    "mongodb": "2.0.43",
+    "morgan": "1.6.1",
+    "serve-favicon": "2.3.0",
+    "swig": "1.4.2",
+    "underscore": "1.8.3"
+  },
+  "description": "Web-based admin interface for MongoDB",
+  "devDependencies": {
+    "chai": "3.3.0",
+    "mocha": "2.3.3"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "3f026d9156464540c1cf823214b73d3adb3a7198",
+    "tarball": "http://registry.npmjs.org/mongo-express/-/mongo-express-0.23.2.tgz"
+  },
+  "engine": "node >= 0.10",
+  "gitHead": "800e43b22c418c59c5fbfee7092e398b954c67d4",
+  "homepage": "https://github.com/andzdroid/mongo-express#readme",
+  "installable": true,
+  "license": "MIT",
+  "main": "./middleware",
+  "maintainers": [
+    {
+      "name": "andz",
+      "email": "zegg90@gmail.com"
+    },
+    {
+      "name": "wulfsolter",
+      "email": "wulf@wulf.co.nz"
+    }
+  ],
+  "name": "mongo-express",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andzdroid/mongo-express.git"
+  },
+  "scripts": {
+    "start": "node app",
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "version": "0.23.2"
+}
