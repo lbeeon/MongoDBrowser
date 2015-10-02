@@ -19,6 +19,7 @@ To use:
 
 For custom port or username and password just visit: `config.js`
 
+Your Mongo Server should run!!!
 
 Visit `http://localhost:8081` or whatever URL/port you entered into your
 config (if running standalone) or whatever `config.site.baseUrl` (if mounting
@@ -48,11 +49,4 @@ Click here for more screenshots:
 [http://imgur.com/a/OTZHe](http://imgur.com/a/OTZHe)
 
 These screenshots are from version 0.11.0.
-
-**To use:**
-
-Visit `http://localhost:8081` or whatever URL/port you entered into your
-config (if running standalone) or whatever `config.site.baseUrl` (if mounting
-as a middleware).
-
 
