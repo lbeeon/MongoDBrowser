@@ -130,6 +130,18 @@ var routes = function(config) {
       res.end();
     });
   };
+  
+  exp.importCollection = function(req, res){
+    var docBSON = bson.toBSON(req.files['import_file'].data.toString());
+    req.collection.insert(docBSON,{safe: true}, function(err, result){
+      if (err){
+        console.log(err);
+        throw err;
+      }
+      console.log(result);
+      return res.redirect('back');
+    });
+  };
 
   exp.addCollection = function(req, res) {
     var name = req.body.collection;

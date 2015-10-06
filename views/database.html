@@ -102,6 +102,14 @@
 	      <i class="icon-download icon-white"></i> Export
 	    </a>
 	</td>
+  <td class="span2">
+	     <a class="btn btn-info span2 import">
+	      <i class="icon-upload icon-white"></i> Import
+	    </a>
+      <form id='form-import' enctype="multipart/form-data" action="{{ baseHref }}db/{{ dbName }}/import/{{ c }}" method="post" class="hidden">
+        <input type="file" id="import_file" name="import_file" class="hidden">
+      </form>
+  </td>
     <td><h3><a href="{{ baseHref }}db/{{ dbName }}/{{ c }}">{{ c }}</a></h3></td>
     {% if !settings.read_only %}
     <td class="span2">

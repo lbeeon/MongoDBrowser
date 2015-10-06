@@ -2,6 +2,7 @@
 
 var express = require('express'),
     bodyParser = require('body-parser'),
+    busboyBodyParser = require('busboy-body-parser'),
     cookieParser = require('cookie-parser'),
     methodOverride = require('method-override'),
     errorHandler = require('errorhandler'),
@@ -28,7 +29,8 @@ var router = function(config) {
   appRouter.use(favicon(__dirname + '/public/images/favicon.ico'));
   appRouter.use(logger('dev'));
   appRouter.use('/', express.static(__dirname + '/public'));
-  appRouter.use(bodyParser.urlencoded({ extended: true }));
+  //appRouter.use(bodyParser.urlencoded({ extended: true }));
+  appRouter.use(busboyBodyParser());
   appRouter.use(cookieParser(config.site.cookieSecret));
   appRouter.use(session({
     secret: config.site.sessionSecret,
@@ -151,6 +153,10 @@ var router = function(config) {
 
     next();
   };
+  
+  /*var mongoMiddleware_busboy = function(req, res, next){
+    mongoMiddleware(req, res, next);
+  };*/
 
 
   // routes
@@ -158,7 +164,8 @@ var router = function(config) {
   
   appRouter.get('/db/:database/updateCollections', mongoMiddleware, routes(config).updateCollections);
   appRouter.get('/db/:database/export/:collection', mongoMiddleware, routes(config).exportCollection);
-
+  appRouter.post('/db/:database/import/:collection', mongoMiddleware, routes(config).importCollection);
+  
   appRouter.get('/db/:database/:collection/:document', mongoMiddleware, routes(config).viewDocument);
   appRouter.put('/db/:database/:collection/:document', mongoMiddleware, routes(config).updateDocument);
   appRouter.delete('/db/:database/:collection/:document', mongoMiddleware, routes(config).deleteDocument);
