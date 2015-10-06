@@ -76,6 +76,23 @@
 </script>
 {% endif %}
 
+<script>
+  $( document ).ready( function() {
+    $( '.importButton' ).on( 'click', function( event ) {
+      event.preventDefault();
+      var target = $( this );
+      var parentForm = $( '#' + target.attr( 'childof' ) + '-import' );
+      var parentFile = $( '#' + target.attr( 'childof' ) + '-file' );
+    
+      parentFile.change(function(){
+        parentForm.trigger( 'submit' );
+      });
+            
+      parentFile.click();
+    });
+  });
+</script>
+
 <table>
   <tr>
     <td>
@@ -103,12 +120,14 @@
 	    </a>
 	</td>
   <td class="span2">
-	     <a class="btn btn-info span2 import">
-	      <i class="icon-upload icon-white"></i> Import
-	    </a>
-      <form id='form-import' enctype="multipart/form-data" action="{{ baseHref }}db/{{ dbName }}/import/{{ c }}" method="post" class="hidden">
-        <input type="file" id="import_file" name="import_file" class="hidden">
+      <form method="POST" id="db-{{ dbName }}-{{ c }}-import" enctype="multipart/form-data" action="{{ baseHref }}db/{{ dbName }}/import/{{ c }}" class="hidden">
+        <input type="file" id="db-{{ dbName }}-{{ c }}-file" name="import_file" class="hidden" accept="image/*">
+        <button type="submit" class="hidden"></button>
       </form>
+      <button class="btn btn-info span2 importButton" collection-name="{{ c }}" childof="db-{{ dbName }}-{{ c }}">
+        <i class="icon-upload icon-white"></i>
+        Import
+      </button>
   </td>
     <td><h3><a href="{{ baseHref }}db/{{ dbName }}/{{ c }}">{{ c }}</a></h3></td>
     {% if !settings.read_only %}

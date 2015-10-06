@@ -132,14 +132,26 @@ var routes = function(config) {
   };
   
   exp.importCollection = function(req, res){
-    var docBSON = bson.toBSON(req.files['import_file'].data.toString());
-    req.collection.insert(docBSON,{safe: true}, function(err, result){
-      if (err){
-        console.log(err);
-        throw err;
-      }
-      console.log(result);
+    
+    var docBSON;
+
+    try {
+      docBSON = bson.toBSON(req.files['import_file'].data.toString());
+    } catch (err) {
+      req.session.error = 'That document is not valid!';
+      console.error(err);
       return res.redirect('back');
+    }
+    
+    req.collection.insert(docBSON, function(err, inserted){
+      if (err) {
+        req.session.error = 'Something went wrong: ' + err;
+        console.error(err);
+        return res.redirect('back');
+      }
+      
+      req.session.success = 'Documents imported!';
+      res.redirect(res.locals.baseHref + 'db/' + req.dbName);
     });
   };
 
